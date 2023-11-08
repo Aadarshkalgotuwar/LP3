@@ -1,0 +1,17 @@
+x = 2
+lr = 0.01
+precision = 0.00001
+previous_step_size = 1
+max_iters = 10000
+iters = 0
+gf = lambda x: (x + 3)**2
+
+while previous_step_size > precision and iters < max_iters:
+    prev_x = x
+    x = x - lr * (2 * (x + 3))  # The derivative of gf(x)
+
+    previous_step_size = abs(x - prev_x)
+    iters += 1
+
+print("Iteration:", iters, "Value:", x)
+print("Local minimum:", x)
